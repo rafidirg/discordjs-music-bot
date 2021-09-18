@@ -21,7 +21,7 @@ fs.readdir('./events')
                 return console.error(`Missing params form ${file}`);
             
             client.on(loaded.eventName, loaded.run);
-            console.log(`loaded command ${loaded.eventName}`)
+            console.log(`loaded event ${loaded.eventName}`)
         }
     })
 
@@ -44,5 +44,7 @@ module.exports = {
     client,
     lavacordManager,
     commands,
-    queue: {}
+
+    /**@type {Object.<string, import('./structures/Queue')>} */
+    queues: {}
 }

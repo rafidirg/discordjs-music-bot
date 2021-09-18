@@ -65,7 +65,6 @@ module.exports = class Queue {
             new MessageEmbed()
                 .setTitle("🎶 Now Playing: " + nextSong.info.title)
                 .addFields([
-                    { inline: true, name: "Author", value: nextSong.info.author },
                     { inline: true, name: "Length", value: msToHMS(nextSong.info.length) },
                     { inline: true, name: "Link", value: nextSong.info.uri }
                 ])

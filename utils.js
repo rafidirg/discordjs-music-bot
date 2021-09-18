@@ -1,4 +1,4 @@
-module.export = {
+module.exports = {
     msToHMS: (duration) => {
         var seconds = parseInt((duration / 1000) % 60);
         var minutes = parseInt((duration / (1000 * 60)) % 60);
