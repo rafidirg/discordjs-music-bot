@@ -11,5 +11,5 @@ module.exports = {
         message.member.voice.channel.leave();
     },
 
-    command: 'join'
+    command: 'leave'
 }
