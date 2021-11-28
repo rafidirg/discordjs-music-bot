@@ -53,22 +53,25 @@ module.exports = class Queue {
         this.currentlyPlaying = nextSong;
 
         if(!nextSong) {
+            this.player.stop()
             this.player = null;
             this.currentlyPlaying = null;
 
-            await lavacordManager.leave(this.guildID);
-            this.textChannel.send('Finished playing.');
+            if (!this.currentlyPlaying){
+                setTimeout(async () =>{
+                    if(!this.currentlyPlaying){
+                        await lavacordManager.leave(this.guildID)
+                        this.textChannel.send('No Activity, leaving channel');
+                    }
+                }, 1500000)
+            }
             return;
         }
 
         this.textChannel.send(
             new MessageEmbed()
                 .setTitle("🎶 Now Playing: " + nextSong.info.title)
-                .addFields([
-                    { inline: true, name: "Length", value: msToHMS(nextSong.info.length) },
-                    { inline: true, name: "Link", value: nextSong.info.uri }
-                ])
-                .setColor("00ff00")
+                .setColor("000000")
         );
 
         if(!this.player) {
