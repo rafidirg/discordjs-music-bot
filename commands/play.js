@@ -29,7 +29,7 @@ module.exports = {
                         { inline: true, name: "Length", value: msToHMS(song.info.length) },
                         { inline: true, name: "Link", value: song.info.uri }
                     ])
-                    .setColor("00ff00")
+                    .setColor("000000")
             )
         }
     },
